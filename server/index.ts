@@ -22,7 +22,7 @@ import { runTasks } from "./utils/scheduler";
 dotenv.config();
 
 const app: Express = express();
-const __dirname = path.resolve();
+// const __dirname = path.resolve();
 
 app.use(bodyParser.json());
 app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
