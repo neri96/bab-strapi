@@ -31,7 +31,7 @@ app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 app.use(express.json());
 app.use(cookieParser());
 
-const port = process.env.PORT || 5551;
+const port = process.env.PORT || 5555;
 
 mongoose.set("strictQuery", false);
 mongoose.connect(process.env.MONGO_URI as string);
