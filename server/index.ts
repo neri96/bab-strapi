@@ -45,10 +45,10 @@ app.use("/contact", contact);
 app.use("/catering", catering);
 // app.use("/catering-category", cateringCategory);
 runTasks();
-const __dirname2 = path.resolve();
-app.use(express.static(path.join(__dirname2, "/client/build")));
+
+app.use(express.static(path.join(__dirname, "../client/build")));
 app.get("*", (_req, res) =>
-  res.sendFile(path.join(__dirname2, "/client/build/index.html"))
+  res.sendFile(path.join(__dirname, "../client/build/index.html"))
 );
 
 app.listen(port, () => {
