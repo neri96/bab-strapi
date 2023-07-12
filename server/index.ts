@@ -43,7 +43,7 @@ app.use("/order", order);
 app.use("/product", product);
 app.use("/contact", contact);
 app.use("/catering", catering);
-// app.use("/catering-category", cateringCategory);
+
 runTasks();
 
 app.use(express.static(path.join(__dirname, "../client/build")));

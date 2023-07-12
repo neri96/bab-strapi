@@ -27,7 +27,7 @@ const Protected = ({
   if (isAuth && requiredRoles.length && requiredRoles.includes(role!)) {
     allowed = true;
   } else if (isPage) {
-    return <h1>{message}</h1> || <Navigate to={"/"} replace />;
+    return message ? <h1>{message}</h1> : <Navigate to={"/"} replace />;
   }
 
   return <>{allowed ? children : null}</>;
