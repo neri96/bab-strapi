@@ -9,7 +9,7 @@ import * as storage from "../../../utils/localStorage";
 import CheckoutForm from "./CheckoutForm";
 
 const key =
-  "pk_test_51MrcYFE1d4cWhDjFbT0iO1vdF6QnF8sPoZ6yQaFpPcid4bKeuUQvQyerVtSbMiX8UdB7EvFdXH13a23cTrm1NjFy00DGTQQQFc";
+  "pk_test_51NZ6d8EWRfTEMDT39c4txHchjY7wkc9hO4HMGyBoOY2tGJDQVS31TQQtpyd2l9k6Q41fCrXvFi8eFV4S1ipSizU600lI062XO9";
 
 const stripeTestPromise = loadStripe(key);
 
