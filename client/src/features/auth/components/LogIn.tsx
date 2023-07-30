@@ -43,7 +43,7 @@ const LogIn = () => {
 
   const { serverError, handleServerError } = useServerError();
 
-  const recapRef = useRef<ReCAPTCHA>();
+  const recapRef = useRef<any>();
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -95,6 +95,7 @@ const LogIn = () => {
         </div>
 
         <ReCAPTCHA
+          ref={recapRef}
           sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY as string}
         />
       </form>
