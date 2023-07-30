@@ -1,4 +1,6 @@
-import { FormEvent } from "react";
+import { FormEvent, useRef } from "react";
+
+import ReCAPTCHA from "react-google-recaptcha";
 
 import { useLoginMutation } from "../../../api/services/auth";
 
@@ -41,12 +43,18 @@ const LogIn = () => {
 
   const { serverError, handleServerError } = useServerError();
 
+  const recapRef = useRef<ReCAPTCHA>();
+
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
     handleSubmitWrap(async () => {
+      const recapToken = await recapRef.current?.executeAsync();
+
+      // recapRef.current?.reset();
+
       try {
-        const data = await logIn(value).unwrap();
+        const data = await logIn({ ...value, recapToken }).unwrap();
 
         const userData = { ...data, isAuth: true };
 
@@ -85,6 +93,10 @@ const LogIn = () => {
         <div className="auth-form__footer">
           <Button isSubmit={true}>Log in</Button>
         </div>
+
+        <ReCAPTCHA
+          sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY as string}
+        />
       </form>
     </div>
   );

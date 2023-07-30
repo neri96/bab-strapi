@@ -11,6 +11,10 @@ interface UserData {
   token: string;
 }
 
+interface LogInData extends LogInInputs {
+  recapToken: string;
+}
+
 export const authApi = api.injectEndpoints({
   endpoints: (builder) => {
     return {
@@ -23,7 +27,7 @@ export const authApi = api.injectEndpoints({
           };
         },
       }),
-      login: builder.mutation<UserData, LogInInputs>({
+      login: builder.mutation<UserData, LogInData>({
         query: (credentials) => {
           return {
             url: "auth/login",

@@ -1,7 +1,8 @@
+import { useMemo } from "react";
+
 import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
 
 import "./ContactMap.scss";
-import { useMemo } from "react";
 
 const ContactMap = () => {
   const center = useMemo(() => ({ lat: 44, lng: -80 }), []);
