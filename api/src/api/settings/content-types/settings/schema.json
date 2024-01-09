@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "setts",
+  "info": {
+    "singularName": "settings",
+    "pluralName": "setts",
+    "displayName": "Settings"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "orders": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "reservations": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    }
+  }
+}

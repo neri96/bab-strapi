@@ -1,0 +1,16 @@
+.cart-footer {
+  margin-top: 10px;
+  height: 90px;
+  display: flex;
+  justify-content: space-between;
+  &__total {
+    display: flex;
+    align-items: center;
+    &--old {
+      text-decoration: line-through;
+    }
+    &--discounted {
+      color: #990000;
+    }
+  }
+}

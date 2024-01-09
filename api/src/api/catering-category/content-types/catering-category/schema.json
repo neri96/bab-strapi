@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "catering_categories",
+  "info": {
+    "singularName": "catering-category",
+    "pluralName": "catering-categories",
+    "displayName": "CateringCategory"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

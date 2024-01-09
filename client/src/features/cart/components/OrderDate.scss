@@ -1,0 +1,19 @@
+.order-date {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  &__date {
+    display: flex;
+    align-items: center;
+    margin: 0 10px;
+  }
+  &__remove {
+    height: 30px;
+    background-color: #b30000;
+    border-radius: 50%;
+    cursor: pointer;
+    img {
+      height: 100%;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "menu",
+  "info": {
+    "singularName": "menu-item",
+    "pluralName": "menu",
+    "displayName": "Menu"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "dishes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::dish.dish"
+    }
+  }
+}

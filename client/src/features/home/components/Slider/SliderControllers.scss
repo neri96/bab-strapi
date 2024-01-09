@@ -1,0 +1,25 @@
+.slider__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+
+  &.left {
+    left: 20px;
+    transform: translateY(-50%) rotate(90deg);
+  }
+  &.right {
+    transform: translateY(-50%) rotate(-90deg);
+    right: 20px;
+  }
+  .button {
+    height: 60px;
+    width: 60px;
+    padding: 0;
+    border-radius: 50%;
+    background-color: #004d00;
+    img {
+      height: 50px;
+    }
+  }
+}
