@@ -34,6 +34,7 @@
 }
 
 .carousel__control {
+  cursor: pointer;
   position: fixed;
   top: 50%;
   z-index: 11000;

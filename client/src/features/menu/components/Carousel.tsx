@@ -1,5 +1,5 @@
+import { Dispatch, SetStateAction } from "react";
 import ReactDOM from "react-dom";
-import { v4 as uuid } from "uuid";
 
 import { motion } from "framer-motion";
 
@@ -8,24 +8,30 @@ import useFreezeBackground from "../../../hooks/useFreezeBackground";
 
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
 
-import "./Carousel.scss";
+import galleryList from "../galleryList";
 
-import { Operator } from "../../../ts/types";
+import "./Carousel.scss";
 
 const Carousel = ({
   currentIndex,
-  images,
-  handleIndex,
+  setCurrentIndex,
   handleCarouselVisib,
 }: {
   currentIndex: number;
-  images: string[];
-  handleIndex: (arg0: Operator) => void;
+  setCurrentIndex: Dispatch<SetStateAction<number>>;
   handleCarouselVisib: () => void;
 }) => {
   useFreezeBackground();
 
-  const sliderWidth = 100 / images.length;
+  const sliderWidth = 100 / galleryList.length;
+
+  const handleIndex = (index: number) => {
+    if (index < 0 || index > galleryList.length - 1) {
+      return null;
+    }
+
+    setCurrentIndex(index);
+  };
 
   const rootElement = document.querySelector("#carousel");
 
@@ -52,21 +58,21 @@ const Carousel = ({
             <div
               className="carousel__content"
               style={{
-                width: `${100 * images.length}%`,
+                width: `${100 * galleryList.length}%`,
                 transform: `translateX(-${sliderWidth * currentIndex}%)`,
               }}
             >
-              {images.map((img: string) => {
+              {galleryList.map(({ id, image }) => {
                 return (
                   <div
-                    key={uuid()}
+                    key={id}
                     className="carousel__slide"
                     style={{
                       width: `${sliderWidth}%`,
                     }}
                   >
                     <img
-                      src={require(`../../../assets/images/${img}`)}
+                      src={require(`../../../assets/images/${image}`)}
                       alt="Babushka gallery"
                     />
                   </div>
@@ -77,15 +83,15 @@ const Carousel = ({
           {currentIndex > 0 ? (
             <div
               className="carousel__left carousel__control"
-              onClick={() => handleIndex(Operator.Subtract)}
+              onClick={() => handleIndex(currentIndex - 1)}
             >
               <AiOutlineArrowLeft size={35} color="#fff" />
             </div>
           ) : null}
-          {currentIndex < images.length - 1 ? (
+          {currentIndex < galleryList.length - 1 ? (
             <div
               className="carousel__right carousel__control"
-              onClick={() => handleIndex(Operator.Add)}
+              onClick={() => handleIndex(currentIndex + 1)}
             >
               <AiOutlineArrowRight size={35} color="#fff" />
             </div>
