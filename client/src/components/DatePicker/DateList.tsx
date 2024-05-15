@@ -13,10 +13,14 @@ const DateList = ({
   setDay: Dispatch<SetStateAction<string>>;
   dayInterval: number;
 }) => {
-  const getYear = useCallback((month: string) => {
+  const getYear = useCallback((month: number) => {
     const now = new Date();
 
-    if (Number(month) < 5) now.setFullYear(now.getFullYear() + 1);
+    if (now.getMonth() > month) {
+      now.setFullYear(now.getFullYear() + 1);
+    } else {
+      now.setFullYear(now.getFullYear());
+    }
 
     return now.getFullYear();
   }, []);
@@ -24,7 +28,7 @@ const DateList = ({
   return (
     <div className="date-time-picker__day">
       <ul>
-        {getDaysInMonth(Number(month), getYear(month), dayInterval).map(
+        {getDaysInMonth(Number(month), getYear(Number(month)), dayInterval).map(
           ({ id, day: dayElem }: { id: string; day: Date }) => {
             const currentDay = dayElem.getDate();
             const dayOfWeek = dayElem.toLocaleString("en-us", {
